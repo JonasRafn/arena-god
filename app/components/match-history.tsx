@@ -592,6 +592,8 @@ export function MatchHistory({ images }: MatchHistoryProps) {
 
 			{selectedMatch && (
 				<MatchDetailsModal
+					user={gameName + '-' + tagLine}
+					matchId={selectedMatch.matchId}
 					matchInfo={selectedMatch.matchInfo}
 					images={images}
 					onClose={() => setSelectedMatch(null)}
@@ -603,6 +605,8 @@ export function MatchHistory({ images }: MatchHistoryProps) {
 }
 
 interface MatchDetailsModalProps {
+	user: string;
+	matchId: string;
 	matchInfo: MatchInfo | null;
 	images: ImageTile[];
 	onClose: () => void;
@@ -610,6 +614,8 @@ interface MatchDetailsModalProps {
 }
 
 function MatchDetailsModal({
+	user,
+	matchId,
 	matchInfo,
 	images,
 	onClose,
@@ -696,11 +702,23 @@ function MatchDetailsModal({
 			>
 				<div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-2 flex justify-between items-center">
 					<h2 className="text-lg font-semibold">Match Details</h2>
+
+					<a
+						href={`https://blitz.gg/lol/match/${matchId.split('_')[0]}/${user}/${matchId.split('_')[1]}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={(e) => e.stopPropagation()}
+						className="px-2 py-0.5 text-xs font-medium bg-red-500/90 text-white rounded-full hover:bg-red-600 transition-colors shadow-sm ring-1 ring-red-600/50"
+					>
+						blitz
+					</a>
+
 					{gameStartTimestamp && (
 						<div className="text-xs text-gray-600 dark:text-gray-400">
 							{formatDate(gameStartTimestamp)}
 						</div>
 					)}
+
 					<button
 						onClick={onClose}
 						className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-2xl leading-none"
