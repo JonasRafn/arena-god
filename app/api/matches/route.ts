@@ -46,7 +46,7 @@ async function getAccount(gameName: string, tagLine: string) {
 	return { success: false, error: "Rate limited — please wait a moment and try again" };
 }
 
-const ARENA_QUEUES = ["1700", "1750"]; // 2v2 + 3v3
+const ARENA_QUEUES = ["1700", "1740", "1750"]; // 2v2 + Bravery + 3v3
 
 async function getMatchIds(puuid: string, queue: string, start: number, count: number, knownRegion?: string) {
 	const regions = knownRegion ? [knownRegion] : ["americas", "europe", "asia", "sea"];
