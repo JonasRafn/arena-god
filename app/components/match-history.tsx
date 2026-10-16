@@ -561,9 +561,9 @@ export function MatchHistory({ images }: MatchHistoryProps) {
 											<Image
 												src={championImage}
 												alt={match.champion}
-												fill
 												className="object-cover"
-												sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16vw"
+												fill
+												sizes="(max-width: 640px) 50vw"
 											/>
 										)}
 										<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -765,9 +765,9 @@ function MatchDetailsModal({
 															<Image
 																src={championImage}
 																alt={participant.championName}
-																fill
 																className="object-cover rounded"
-																sizes="56px"
+																fill
+																sizes="(max-width: 640px) 50vw"
 															/>
 														)}
 													</div>

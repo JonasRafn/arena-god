@@ -199,15 +199,16 @@ export function ImageGrid({ images, displayImages = images }: ImageGridProps) {
 								<Image
 									src={image.src}
 									alt={image.displayName}
-									fill
 									priority
 									className={`object-cover rounded-lg transition-opacity duration-300 ${
 										isCompleted
 											? "opacity-100"
 											: "opacity-50"
 									} group-hover:opacity-100`}
-									sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+									fill
+									sizes="(max-width: 640px) 50vw"
 								/>
+
 								<div
 									className={`absolute top-2 right-2 p-1 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-sm ${
 										isCompleted ? "scale-110" : "scale-100"
